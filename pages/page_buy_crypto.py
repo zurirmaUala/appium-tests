@@ -22,12 +22,12 @@ class PageBuyCrypto:
             self.total_text))
         return total_text
 
-    def enter_local_currency(self, amount):
+    def input_local_currency(self, amount):
         local_currency_field = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
             self.local_currency_field))
         local_currency_field.send_keys(str(amount))
 
-    def select_comprar_crypto(self):
+    def select_buy_crypto(self):
         confirmation_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
             self.confirmation_button))
         confirmation_button.click()
