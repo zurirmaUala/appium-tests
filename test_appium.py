@@ -1,5 +1,3 @@
-import time
-
 from appium import webdriver
 import pytest
 from selenium.webdriver.common.by import By
