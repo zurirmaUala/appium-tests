@@ -11,13 +11,13 @@ class PageCountries:
         self.driver = driver
 
     def select_arg_button(self):
-        argentina_button = WebDriverWait(self.driver, 4).until(EC.element_to_be_clickable(self.arg_button))
+        argentina_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.arg_button))
         argentina_button.click()
 
     def select_mex_button(self):
-        mexico_button = WebDriverWait(self.driver, 4).until(EC.element_to_be_clickable(self.mex_button))
+        mexico_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.mex_button))
         mexico_button.click()
 
     def select_col_button(self):
-        colombia_button = WebDriverWait(self.driver, 4).until(EC.element_to_be_clickable(self.col_button))
+        colombia_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.col_button))
         colombia_button.click()
