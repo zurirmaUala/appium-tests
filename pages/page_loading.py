@@ -7,7 +7,7 @@ class PageLoading:
     def __init__(self, driver):
         self.feedback_title = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/feedback_title')
         self.feedback_subtitle = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/feedback_subtitle')
-        self.feedback_primary_action_button = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/feedback_primary_action')
+        self.back_home_button = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/feedback_primary_action')
         self.driver = driver
 
     def get_feedback_title(self):
@@ -20,8 +20,8 @@ class PageLoading:
             self.feedback_subtitle))
         return feedback_subtitle
 
-    def press_feedback_primary_action_button(self):
-        feedback_primary_action_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
-            self.feedback_primary_action_button))
-        feedback_primary_action_button.click()
+    def press_back_home_button(self):
+        back_home_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
+            self.back_home_button))
+        back_home_button.click()
 
