@@ -5,6 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class PageCountries:
     def __init__(self, driver):
+        self.title = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/title')
         self.arg_button = (By.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]')
         self.mex_button = (By.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]')
         self.col_button = (By.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]')
@@ -21,3 +22,8 @@ class PageCountries:
     def select_col_button(self):
         colombia_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.col_button))
         colombia_button.click()
+
+    def get_title(self):
+        title = WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(self.title))
+        return title
+
