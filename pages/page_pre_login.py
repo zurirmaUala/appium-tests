@@ -8,6 +8,7 @@ class PagePreLogin:
         self.sing_in_out_button = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/signInOutButton')
         self.go_to_exchange_button = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/go_to_exchange_button')
         self.do_button = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/doButton')
+        self.user_text = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/userText')
         self.environment_text = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/environmentText')
         self.driver = driver
 
@@ -29,3 +30,7 @@ class PagePreLogin:
         environment_text = WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(
             self.environment_text))
         return environment_text
+
+    def get_user_text(self):
+        user_text = WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(self.user_text))
+        return user_text
