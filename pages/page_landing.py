@@ -15,11 +15,12 @@ class PageLanding:
 
     def compare_title_page(self):
         title = WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(self.title_page), 'Saldo en pesos unificado')
-
+        return title
     def check_consolidated_amount(self):
         consolidated_amount = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.consolidated_amount))
         local_amount = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.local_amount))
-        assert consolidated_amount == local_amount
+        return consolidated_amount
+        return local_amount
 
     def select_purchase_button(self):
         purchase_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.purchase_button))

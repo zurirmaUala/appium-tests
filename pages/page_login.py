@@ -2,11 +2,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-class LoginPage:
+class PageLogin:
     def __init__(self,driver):
         self.name_field = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/signin_username_input')
         self.password_field = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/signin_password_input')
         self.sign_in_button = (By.ID, 'ar.com.bancar.uala.cryptoapp.stage:id/sign_in_button')
+        self.driver = driver
 
     def input_name(self):
         name = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.name_field))
