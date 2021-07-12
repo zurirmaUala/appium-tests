@@ -27,9 +27,9 @@ class PagePreLogin:
         do_button.click()
 
     def get_environment_text(self):
-        environment_text = WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(
+        environment_text = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
             self.environment_text))
-        return environment_text
+        return environment_text.text
 
     def get_user_text(self):
         user_text = WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(self.user_text))

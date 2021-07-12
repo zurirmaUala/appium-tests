@@ -28,6 +28,6 @@ class PageBuyCrypto:
         local_currency_field.send_keys(str(amount))
 
     def select_buy_crypto(self):
-        confirmation_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
+        confirmation_button = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(
             self.confirmation_button))
         confirmation_button.click()
