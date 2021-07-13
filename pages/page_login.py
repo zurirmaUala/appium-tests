@@ -10,7 +10,7 @@ class PageLogin:
         self.driver = driver
 
     def input_name(self):
-        name = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.name_field))
+        name = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(self.name_field))
         name.send_keys('new_user_1606759264')
 
     def input_password(self):

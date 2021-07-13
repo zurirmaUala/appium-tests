@@ -17,7 +17,7 @@ class PageResult:
         return feedback_icon
 
     def get_feedback_title(self):
-        feedback_title = WebDriverWait(self.driver, 100).until(EC.text_to_be_present_in_element(
+        feedback_title = WebDriverWait(self.driver, 100).until(EC.presence_of_element_located(
             self.feedback_title))
         return feedback_title.text
 

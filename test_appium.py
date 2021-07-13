@@ -18,6 +18,7 @@ from pages.page_buy_crypto import PageBuyCrypto
 from pages.page_confirmation_purchase import PageConfirmationPurchase
 from pages.page_countries import PageCountries
 from pages.page_landing import PageLanding
+from pages.page_loading import PageLoading
 from pages.page_login import PageLogin
 from pages.page_pre_login import PagePreLogin
 from pages.page_purchase_options import PagePurchaseOptions
@@ -36,9 +37,6 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
 
 class Testappium():
-    def test_model(self):
-        assert True
-
     def test_login(self):
         page_country = PageCountries(driver)
         pre_login = PagePreLogin(driver)
@@ -77,13 +75,16 @@ class Testappium():
         buy_crypto = PageBuyCrypto(driver)
         confirmation = PageConfirmationPurchase(driver)
         result = PageResult(driver)
+        loading = PageLoading(driver)
         crypto.select_ir_a_inv_crypto_button()
         landing.select_purchase_button()
         btc.select_btc_option()
         buy_crypto.input_local_currency('100,00')
         buy_crypto.select_buy_crypto()
         confirmation.confirm_purchase()
-        time.sleep(100)
+        time.sleep(30)
+        assert 'Danos un minuto' == loading.get_feedback_title()
+        time.sleep(45)
         assert '¡Se generó la compra!' == result.get_feedback_title()
 
 

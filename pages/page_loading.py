@@ -11,9 +11,9 @@ class PageLoading:
         self.driver = driver
 
     def get_feedback_title(self):
-        feedback_title = WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(
+        feedback_title = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(
             self.feedback_title))
-        return feedback_title
+        return feedback_title.text
 
     def get_feedback_subtitle(self):
         feedback_subtitle = WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(

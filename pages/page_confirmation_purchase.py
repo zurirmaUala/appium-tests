@@ -12,11 +12,11 @@ class PageConfirmationPurchase:
         self.driver = driver
 
     def confirm_purchase(self):
-        purchase_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.confirm_button))
+        purchase_button = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(self.confirm_button))
         purchase_button.click()
 
     def get_warning_advertise(self):
-        warning = WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(self.warning_advertise), 'Esta cotización es válida por 30 segundos')
+        warning = WebDriverWait(self.driver, 20).until(EC.text_to_be_present_in_element(self.warning_advertise), 'Esta cotización es válida por 30 segundos')
         return warning
 
 
