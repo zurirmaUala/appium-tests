@@ -1,5 +1,5 @@
 import time
-
+import allure
 from appium import webdriver
 import pytest
 from selenium.webdriver.common.by import By
@@ -37,7 +37,9 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
 
 class Testappium():
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_login(self):
+        """Test que valida un logueo exitoso a la app"""
         page_country = PageCountries(driver)
         pre_login = PagePreLogin(driver)
         login = PageLogin(driver)
@@ -68,7 +70,9 @@ class Testappium():
         # # arg_text.text
         # assert arg_text == True
 
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_purchase(self):
+        """Test que valida una compra de btc exitosa"""
         crypto = PagePreLogin(driver)
         landing = PageLanding(driver)
         btc = PagePurchaseOptions(driver)
@@ -107,7 +111,10 @@ class Testappium():
         # currently_waiting_for.click()
         # successful_text = wait.until(EC.text_to_be_present_in_element((By.ID,'ar.com.bancar.uala.cryptoapp.stage:id/feedback_title'),'¡Se generó la compra!'))
         # assert successful_text == True
-
+    @allure.severity(allure.severity_level.BLOCKER)
+    def test_another(self):
+        """Another case..."""
+        assert False
 
 
 
